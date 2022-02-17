@@ -1,0 +1,29 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+}
+
+.nav-start,
+.nav-end {
+  display: flex;
+  align-items: center;
+}
+
+.navigation a {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 1.5rem;
+}
+
+.navigation a:hover {
+  cursor: pointer;
+  color: #ccc;
+}
+
+a.active {
+  text-decoration: underline;
+}

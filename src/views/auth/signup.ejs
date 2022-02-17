@@ -1,0 +1,32 @@
+<%- include('../includes/start') %>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <title>Signup</title>
+  </head>
+  <body>
+  <%- include('../includes/navigation') %>
+  <main>
+    <%if(errors.length > 0) {%>
+        <section class="error-messages">
+        <%for(let error of errors) {%>
+            <p><%=error%></p>
+        <%}%>
+        </section>
+    <%}%>
+    <form action='/signup' method="POST">
+        <div class="input-field">
+          <label htmlFor="email">E-mail:</label>
+          <input id="email" type="text" name="email" value="<%=oldInput.email%>"/>
+      </div>
+      <div class="input-field">
+          <label>Password:</label>
+          <input id="password" type="password" name="password" value="<%=oldInput.password%>" />
+      </div>
+      <div class="input-field">
+          <label htmlFor="password-check">Password Check:</label>
+          <input id="password-check" type="password" name="passwordCheck" />
+      </div>
+      <button type="submit">Signup</button>
+    </form>
+  </main>
+<%- include('../includes/end') %>

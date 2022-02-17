@@ -1,0 +1,24 @@
+
+<header >
+    <nav class="navigation">
+      <div class="nav-start">
+        <a class="<%= path==='/' ? 'active' : '' %>" href="/">home</a>
+        <%if(isAdmin) {%>
+          <a class="<%= path==='/add-book' ? 'active' : '' %>" href="/admin/add-book">add book</a>
+        <%}%>
+      </div>
+      <div class="nav-start">
+        <%if(!isLoggedIn) {%>
+            <a class="end <%= path==='/login' ? 'active' : '' %>" href="/login">login</a>
+            <a class="end <%= path==='/signup' ? 'active' : '' %>" href="/signup">signup</a>
+        <%} else {%>
+            <form id="logout-form" action="/logout" method="POST">
+               <button id="logout-button" type="submit">Logout</button>
+             </form>
+        <%}%>
+        <%if (!isAdmin) {%>
+        <a class=" end <%=path==='/cart' ? 'active' : '' %>" href="/cart">cart</a>
+        <%}%>
+      </div>
+    </nav>
+</header>

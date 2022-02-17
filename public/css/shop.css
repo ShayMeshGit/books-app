@@ -1,0 +1,51 @@
+.shop {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.books-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-item {
+  margin: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 300px;
+  max-width: 400px;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.book-item > span {
+  margin-bottom: 1rem;
+}
+
+#book-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#book-description {
+  font-size: 1.2rem;
+}
+
+.book-actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.book-actions button {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}

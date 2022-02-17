@@ -1,0 +1,48 @@
+<%- include('../includes/start') %>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <title>Add</title>
+  </head>
+  <body>
+  <%- include('../includes/navigation') %>
+  <main>
+    <form action='/admin<% if(isEditing) { %>/edit-book/<%=book._id%><%} else {%>/add-book<%}%>' method="POST">
+      <div class="input-field">
+          <label htmlFor="title">Title:</label>
+          <input id="title" type="text" name="title" value='<% if(isEditing) { %><%=book.title%><%} else {%><%}%>'/>
+      </div>
+      <div class="input-field">
+          <label>Description:</label>
+          <input id="description" type="text" name="description" value='<% if(isEditing) { %><%=book.description%><%} else {%><%}%>'/>
+      </div>
+        <div class="input-field">
+          <label>Price($):</label>
+          <input id="price" type="number" name="price" value='<% if(isEditing) { %><%=book.price%><%} else {%><%}%>'/>
+      </div>
+            <div class="input-field">
+          <label>Author:</label>
+          <input id="author" type="text" name="author" value='<% if(isEditing) { %><%=book.author%><%} else {%><%}%>'/>
+      </div>
+            <div class="input-field">
+          <label>Publish Date:</label>
+          <input id="publishDate" type="date" name="publishDate" value='<% if(isEditing) { 
+          const currentDate= new Date(book.publishDate);
+
+          const day = ("0" + currentDate.getDate()).slice(-2);
+          const month = ("0" + (currentDate.getMonth() + 1)).slice(-2);
+
+          const today = currentDate.getFullYear()+"-"+(month)+"-"+(day) ;
+            %><%=today%><%} else {%><%}%>'/>
+        </div>
+        <div class="input-field">
+            <label>Pages Number:</label>
+            <input id="pagesNumber" type="number" name="pagesNumber" value='<% if(isEditing) { %><%=book.pagesNumber%><%} else {%><%}%>'/>
+          </div>
+              <div class="input-field">
+            <label>Image URL:</label>
+            <input id="imageUrl" type="text" name="imageUrl" value='<% if(isEditing) { %><%=book.imageUrl%><%} else {%><%}%>'/>
+        </div>
+      <button type="submit"><%if(isEditing){%>edit book<%} else {%>add Book<%}%></button>
+    </form>
+  </main>
+<%- include('../includes/end') %>

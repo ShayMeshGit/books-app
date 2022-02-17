@@ -1,0 +1,45 @@
+<%- include('../includes/start') %>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/book-details.css">
+    <title><%=title%></title>
+  </head>
+  <body>
+  <%- include('../includes/navigation') %>
+  <main class="book">
+    <div class="book-details">
+        <img src="<%=book.imageUrl%>" alt="<%=book.title%>" width="150" height="200">
+        <div class="book-row">
+          <span>Title:</span>
+          <span><%=book.title%></span>
+        </div>
+        <div class="book-row">
+          <span>Price:</span>
+          <span><%=book.price%>$</span>
+        </div>
+        <div class="book-row">
+          <span>Publish Date:</span>
+          <span><%
+          const currentDate= new Date(book.publishDate);
+
+          const day = ("0" + currentDate.getDate()).slice(-2);
+          const month = ("0" + (currentDate.getMonth() + 1)).slice(-2);
+
+          const today = currentDate.getFullYear()+"-"+(month)+"-"+(day) ;
+            %><%=today%></span>
+        </div>
+        <div class="book-row">
+          <span>Author:</span>
+          <span><%=book.author%></span>
+        </div>
+        <div class="book-row">
+          <span>Pages Number:</span>
+          <span><%=book.pagesNumber%></span>
+        </div>
+                <div class="book-description">
+          <span>Description:</span>
+          <span><%=book.description%></span>
+        </div>
+    </div>
+  </main>
+<%- include('../includes/end') %>

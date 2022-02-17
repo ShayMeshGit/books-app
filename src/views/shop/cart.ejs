@@ -1,0 +1,36 @@
+<%- include('../includes/start') %>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/cart.css">
+    <title>Cart</title>
+  </head>
+  <body>
+  <%- include('../includes/navigation') %>
+  <main id="cart" class="cart">
+    <div id="cart-list" class="cart-books-list">
+      <%if(cartBooks.length > 0) {%>
+        <%for(let cartBook of cartBooks) {%>
+        <div class="cartItem" id="<%=cartBook.bookId._id%>">
+            <span><%=cartBook.bookId.title%></span>
+            <div id="cart-item-end">
+              <span id="quantity"><%=cartBook.quantity%></span>
+              <span id="price"><%=cartBook.bookId.price%>$</span>
+              <form method="POST" action="/cart-delete">
+                <input type="hidden" name="bookId" value="<%=cartBook.bookId._id%>">
+                <button type="submit">X</button>
+              </form>
+            </div>
+        </div>
+        <%}%>
+        <form id="cart-submit" method="POST" action="/cart-buy">
+          <button type="submit">Buy Now!</button>
+        </form>
+        <%} else if(isLoggedIn) {%>  
+          <h1>Your Cart Is Empty!</h1>
+          <%}%>
+    </div>
+</main>
+<%if(!isLoggedIn) {%>
+    <script src="/js/cart.js"></script>
+<%}%>
+<%- include('../includes/end') %>
